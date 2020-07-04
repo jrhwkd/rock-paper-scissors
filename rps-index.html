@@ -9,6 +9,7 @@
             function computerPlay() {
                 let computerChoices = [`rock`, `paper`, `scissors`];
                 let computerPick = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+                return computerPick;
             }
             function playRound(playerSelection, computerSelection) {
                 switch (true) {
@@ -19,11 +20,13 @@
                     case playerSelection == `paper` && computerSelection == `scissors`:
                     case playerSelection == `scissors` && computerSelection == `rock`:
                         return `You lose! ${computerSelection} beats ${playerSelection}.`;
+                        let computerScore = computerScore++;
                         break;
                     case playerSelection == `rock` && computerSelection == `scissors`:
                     case playerSelection == `paper` && computerSelection == `rock`:
                     case playerSelection == `scissors` && computerSelection == `paper`:
                         return `You win! ${playerSelection} beats ${computerSelection}.`;
+                        let playerScore = playerScore++;
                         break;
                     default:
                         return `Something went wrong!`;
@@ -37,9 +40,20 @@
                     let playerSelection = playerPrompt.toString().toLowerCase;
                     let computerSelection = computerPlay();
                     let playResult = playRound(playerSelection, computerSelection);
-                    console.log(playRound(playerSelection, computerSelection));
-                    }
+                    console.log(playResult);
+                }
+                if (playerScore > computerScore) {
+                    let winner = `Player wins! Player: ${playerScore} Computer: ${computerScore}`;
+                    return winner;
+                    console.log(winner);
+                } else {
+                    let winner = `Computer wins! Player: ${playerScore} Computer: ${computerScore}`;
+                    return winner;
+                    console.log(winner);
+                }   
             }
+            let playerScore = 0;
+            let computerScore = 0;
             game();
        </script>
     </body>
