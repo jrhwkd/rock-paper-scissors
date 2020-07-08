@@ -42,9 +42,13 @@
                     console.log(`Computer selection is ${computerSelection}.`)
                     let playResult = playRound(playerSelection, computerSelection);
                     console.log(playResult);
+                    console.log(`Current Score: Player: ${playerScore} Computer: ${computerScore}`)
                 }
                 if (playerScore > computerScore) {
                     let winner = `Player wins! Player: ${playerScore} Computer: ${computerScore}`;
+                    console.log(winner);
+                } else if (playerScore == computerScore) {
+                    let winner = `It's a tie! Player: ${playerScore} Computer: ${computerScore}`;
                     console.log(winner);
                 } else {
                     let winner = `Computer wins! Player: ${playerScore} Computer: ${computerScore}`;
