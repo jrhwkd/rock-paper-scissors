@@ -16,39 +16,38 @@
                     case playerSelection == computerSelection:
                         return `It's a tie!`;
                         break;
-                    case playerSelection == `rock` && computerSelection == `paper`:
-                    case playerSelection == `paper` && computerSelection == `scissors`:
-                    case playerSelection == `scissors` && computerSelection == `rock`:
+                    case (playerSelection == `rock` && computerSelection == `paper`):
+                    case (playerSelection == `paper` && computerSelection == `scissors`):
+                    case (playerSelection == `scissors` && computerSelection == `rock`):
+                        computerScore += 1;
                         return `You lose! ${computerSelection} beats ${playerSelection}.`;
-                        let computerScore = computerScore++;
                         break;
-                    case playerSelection == `rock` && computerSelection == `scissors`:
-                    case playerSelection == `paper` && computerSelection == `rock`:
-                    case playerSelection == `scissors` && computerSelection == `paper`:
+                    case (playerSelection == `rock` && computerSelection == `scissors`):
+                    case (playerSelection == `paper` && computerSelection == `rock`):
+                    case (playerSelection == `scissors` && computerSelection == `paper`):
+                        playerScore += 1;
                         return `You win! ${playerSelection} beats ${computerSelection}.`;
-                        let playerScore = playerScore++;
                         break;
                     default:
                         return `Something went wrong!`;
                 }
             }
             function game() {
-                // loop 5 times
                 let i;
                 for (i = 0; i < 5; i++) {
                     let playerPrompt = prompt(`Rock, paper, scissors...shoot!`);
-                    let playerSelection = playerPrompt.toString().toLowerCase;
+                    let playerSelection = playerPrompt.toLowerCase();
+                    console.log(`Player selction is ${playerSelection}.`);
                     let computerSelection = computerPlay();
+                    console.log(`Computer selection is ${computerSelection}.`)
                     let playResult = playRound(playerSelection, computerSelection);
                     console.log(playResult);
                 }
                 if (playerScore > computerScore) {
                     let winner = `Player wins! Player: ${playerScore} Computer: ${computerScore}`;
-                    return winner;
                     console.log(winner);
                 } else {
                     let winner = `Computer wins! Player: ${playerScore} Computer: ${computerScore}`;
-                    return winner;
                     console.log(winner);
                 }   
             }
